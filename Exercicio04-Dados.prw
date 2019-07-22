@@ -21,6 +21,6 @@ User Function ()
     nTotal := nQuant*nPreco
     nTotal2 := nTotal - (nDesc*nTotal)
 
-    Alert (nTota2)
+    Alert (nTota2) //Talita
 
 Return
