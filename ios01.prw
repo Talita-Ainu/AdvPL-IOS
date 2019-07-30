@@ -19,8 +19,8 @@ Return FWMVCMenu('Ios01') //Menu padrão do C.R.U.D
 
 Static Function ModelDef()
 
-Local oModel := MPFormModel():New("Autor")
-Local oStruZA0 := FWFormStruct(1,"ZA0")
+Local oModel := MPFormModel():New("Ainu")
+Local oStruZA0 := FWFormStruct(1, "ZA0")
 //Form Field : Campo de formulário
 
 oModel:AddFields("ZA0MASTER",/* Owner */,oStruZA0)
@@ -29,10 +29,11 @@ Return oModel
 Static Function ViewDef()
 
 Local oView := FWFormView():New()
+Local oStruct := FWFormStruct(2, "ZA0")
+
 oView:SetModel(ModelDef())
 
 oView:AddField("ZA0_VIEW", oStruct, "ZA0MASTER")
-oView:CreateHorizontalBox(100,"BOXZA0")
+oView:CreateHorizontalBox("BOXZA0", 100)
 oView:SetOwnerView("ZA0_VIEW","BOXZA0")
-
 Return oView
