@@ -28,27 +28,24 @@ Static Function PosVldAutor(oModelField)
 Local lTudoOk := .T.
 Local dFalec := oModelField:GetValue("ZA0_DTAFAL")
 Local cNome := oModelField:GetValue("ZA0_NOME")
+
 If dFalec > Date()
-lTudoOk := .F.
-Help( ,, 'HELP',, 'Não adivinhe o futuro', 1, 0)
-EndIf
+    lTudoOk := .F.
+    Help( ,, 'HELP',, 'Não adivinhe o futuro', 1, 0)
 
-If 'RICARDO' $ UPPER(cNome) .or. Empty(cNome)
-lTudoOk := .F.
-
-Help( ,, 'HELP',, 'Ele não pode estar aqui', 1, 0)
-
+ElseIf 'RICARDO' $ UPPER(cNome) .or. Empty(cNome)
+    lTudoOk := .F.
+    Help( ,, 'HELP',, 'Ele não pode estar aqui', 1, 0)
 Endif
 Return lTudoOk
 
 Static Function ViewDef()
-
 Local oView := FWFormView():New()
 Local oStruct := FWFormStruct(2, "ZA0")
 
 oView:SetModel(ModelDef())
-
 oView:AddField("ZA0_VIEW", oStruct, "ZA0MASTER")
 oView:CreateHorizontalBox("BOXZA0", 100)
 oView:SetOwnerView("ZA0_VIEW","BOXZA0")
+
 Return oView
