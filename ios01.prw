@@ -5,13 +5,11 @@ User function autor()
 Local oBrowse := FWMBrowse():New()
 
 oBrowse:SetAlias("ZA0")
-//set você coloca as configurações para executar a função.
 oBrowse:SetMenuDef('Ios01')
 oBrowse:Activate() 
 
 Return
 
-//Função que pertence somente a este fonte
 
 Static Function MenuDef()
 
@@ -21,10 +19,27 @@ Static Function ModelDef()
 
 Local oModel := MPFormModel():New("Ainu")
 Local oStruZA0 := FWFormStruct(1, "ZA0")
-//Form Field : Campo de formulário
+Local bPos := {|oModelField| PosVldAutor(oModelField) }
 
-oModel:AddFields("ZA0MASTER",/* Owner */,oStruZA0)
+oModel:AddFields("ZA0MASTER",/* Owner */,oStruZA0, /**/, bPos)
 Return oModel
+
+Static Function PosVldAutor(oModelField)
+Local lTudoOk := .T.
+Local dFalec := oModelField:GetValue("ZA0_DTAFAL")
+Local cNome := oModelField:GetValue("ZA0_NOME")
+If dFalec > Date()
+lTudoOk := .F.
+Help( ,, 'HELP',, 'Não adivinhe o futuro', 1, 0)
+EndIf
+
+If 'RICARDO' $ UPPER(cNome) .or. Empty(cNome)
+lTudoOk := .F.
+
+Help( ,, 'HELP',, 'Ele não pode estar aqui', 1, 0)
+
+Endif
+Return lTudoOk
 
 Static Function ViewDef()
 
