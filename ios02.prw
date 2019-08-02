@@ -1,6 +1,6 @@
 #include 'Protheus.ch'
 
-User Function musica() //O nome da function foi definido com o nome do Browse
+User Function ios02() //O nome da function foi definido com o nome do Browse
 Local oBrowse := FWMBrowse():New()
 
 oBrowse:SetAlias("ZA1")
@@ -15,7 +15,7 @@ Return
 //Função que pertence somente a este fonte
 Static Function Menudef()
  
-Return FWMVCMenu('musica') //Menu Padrão com C.R.U.D.
+Return FWMVCMenu('ios02') //Menu Padrão com C.R.U.D.
 
 //MVC - Model (Dados e regra de negócio) 
 //      View (Interface) 

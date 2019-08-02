@@ -13,8 +13,8 @@ DATA nKmRodado
 
 //Transformando uma classe em objeto 
 METHOD New() Constructor 
-METHOD Andar()
 METHOD Correr()
+METHOD Andar()
 METHOD A_Veloc()
 METHOD D_Veloc()
 METHOD Pas_Marc()
@@ -28,14 +28,15 @@ METHOD Andar() Class Automovel
  Alert("Estou andando")
 Return 
 
-METHOD Correr() Class Automovel 
- Alert("Estou acima da velocidade")
-Return 
 
 METHOD KM_Rodado() Class Automovel
    nKmRodado := FWInputBox("Digite o KM") 
    Alert(nKmRodado)
 Return
+
+METHOD Correr() Class Automovel 
+ Alert("Estou acima da velocidade")
+Return 
     
 //metodo de criação do objeto
 METHOD New() Class Automovel 
@@ -48,7 +49,8 @@ Local oCarro := Automovel():New()
 
 //Chamada da função/metodo do objeto
 oCarro:Andar()
-oCarro:Correr()
 oCarro:KM_Rodado()
+oCarro:Correr()
+
 
 Return

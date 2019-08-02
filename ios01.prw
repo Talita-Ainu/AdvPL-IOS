@@ -33,8 +33,7 @@ If dFalec > Date()
     lTudoOk := .F.
     Help( ,, 'HELP',, 'Não adivinhe o futuro', 1, 0)
 
-ElseIf 'RICARDO' $ UPPER(cNome) .or. Empty(cNome)
-    lTudoOk := .F.
+     lTudoOk := .F.
     Help( ,, 'HELP',, 'Ele não pode estar aqui', 1, 0)
 Endif
 Return lTudoOk

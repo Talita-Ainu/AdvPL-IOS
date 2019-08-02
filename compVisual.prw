@@ -31,7 +31,6 @@ ACTIVATE MSDIALOG oDlg CENTERED
 
  
 
-
 Return
 
 User Function Botao(oDlg,cNome)
